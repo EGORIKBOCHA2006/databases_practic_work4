@@ -1,0 +1,20 @@
+name: PostgreSQL practice 4
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * *"
+permissions:
+  contents: read
+jobs:
+  database:
+    runs-on: [self-hosted, Linux, X64, vbox]
+    timeout-minutes: 20
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run Flyway migrations and verify backup
+        run: bash scripts/ci.sh
