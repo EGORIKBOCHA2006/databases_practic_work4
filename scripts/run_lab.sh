@@ -149,9 +149,9 @@ test "$(psql -XAtc "SELECT count(*) FROM users WHERE email LIKE 'corrupted-%'")"
 
 {
 echo '$ scripts/verify_backup.sh backup_lab public.users public.orders public.test_monitor'
-"$repo/scripts/verify_backup.sh" backup_lab public.users public.orders public.test_monitor
+bash "$repo/scripts/verify_backup.sh" backup_lab public.users public.orders public.test_monitor
 echo '$ scripts/verify_backup.sh backup_lab public.missing_table'
-if "$repo/scripts/verify_backup.sh" backup_lab public.missing_table; then
+if bash "$repo/scripts/verify_backup.sh" backup_lab public.missing_table; then
   echo 'Expected the invalid-table test to fail' >&2
   exit 1
 fi
