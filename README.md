@@ -9,7 +9,7 @@ bash scripts/ci.sh
 ```
 
 GitHub Actions запускает тот же скрипт на раннере с метками
-`self-hosted`, `Linux`, `X64`, `vbox` при push в main, вручную и по
+`self-hosted`, `Linux`, `X64` (раннер vbox) при push в main, вручную и по
 расписанию в 23:00 UTC (02:00 по Москве).
 
 Для диагностики, каталогового дампа и PITR нужны серверные и клиентские
